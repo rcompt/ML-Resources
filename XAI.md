@@ -44,3 +44,6 @@ Answer: Make the explanation system interactive so users can drill down until th
 
 # Ribeiro, Singh, & Guestrin (2018) 
 ## Anchors: High-Precision Model-Agnostic Explanations
+
+# Springer & Whittaker (2018)
+## What Are You Hiding? Algorithmic Transparency and User Perceptions.
