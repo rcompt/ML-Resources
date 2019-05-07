@@ -1,8 +1,8 @@
 # Papers
--[Weld & Bansal (2018) The Challenge of Crafting Intelligible Intelligence](#weld-&-bansal-(2018))
+-[Weld & Bansal (2018) The Challenge of Crafting Intelligible Intelligence](#weld-&-bansal-2018)
 
-# Weld & Bansal (2018) 
-# The Challenge of Crafting Intelligible Intelligence
+# Weld & Bansal 2018 
+## The Challenge of Crafting Intelligible Intelligence
 
 Most computer-based produced behavior is alien (can fail in unexpected ways). Complex systems that exceeds human abilities to verify. We can neither trust nor control system behavior that we do not understand. 
 
@@ -39,8 +39,11 @@ Answer: Make the explanation system interactive so users can drill down until th
 
 ### Legal Imperatives
 
-# Ribeiro, Singh, & Guestrin (2016) “Why Should I Trust You?” Explaining the Predictions of Any Classifier
+# Ribeiro, Singh, & Guestrin (2016) 
+## “Why Should I Trust You?” Explaining the Predictions of Any Classifier
 
-# Lundberg & Lee (2017) A Unified Approach to Interpreting Model Predictions
+# Lundberg & Lee (2017) 
+## A Unified Approach to Interpreting Model Predictions
 
-# Ribeiro, Singh, & Guestrin (2018) Anchors: High-Precision Model-Agnostic Explanations
+# Ribeiro, Singh, & Guestrin (2018) 
+## Anchors: High-Precision Model-Agnostic Explanations
