@@ -35,4 +35,8 @@ Answer: Make the explanation system interactive so users can drill down until th
 
 ### Legal Imperatives
 
+# Ribeiro, Singh, & Guestrin (2016) “Why Should I Trust You?” Explaining the Predictions of Any Classifier
 
+# Lundberg & Lee (2017) A Unified Approach to Interpreting Model Predictions
+
+# Ribeiro, Singh, & Guestrin (2018) Anchors: High-Precision Model-Agnostic Explanations
