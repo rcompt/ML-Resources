@@ -1,7 +1,3 @@
-# Papers
--[Weld & Bansal (2018) The Challenge of Crafting Intelligible Intelligence](#weld-&-bansal-2018)
--[Ribeiro, Singh, & Guestrin (2016) “Why Should I Trust You?” Explaining the Predictions of Any Classifier](#ribeiro,-singh,-&-uestrin-2016)
-
 # Weld & Bansal 2018 
 ## The Challenge of Crafting Intelligible Intelligence
 
