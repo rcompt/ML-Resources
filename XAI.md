@@ -1,4 +1,8 @@
-# Weld & Bansal (2018) The Challenge of Crafting Intelligible Intelligence
+# Papers
+-[Weld & Bansal (2018) The Challenge of Crafting Intelligible Intelligence](#weld-&-bansal-(2018))
+
+# Weld & Bansal (2018) 
+# The Challenge of Crafting Intelligible Intelligence
 
 Most computer-based produced behavior is alien (can fail in unexpected ways). Complex systems that exceeds human abilities to verify. We can neither trust nor control system behavior that we do not understand. 
 
