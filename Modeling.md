@@ -11,10 +11,15 @@ Stratified sampling is the procedure in which a representative distribution of t
 
 # Modeling Types
 
+## Supervised v Unsupervised
+
+## Generative v Discriminate
+
 ## Decision Trees
 ### Baseline Tree
 ### Ensemble Methods
 #### XGBoosted Forests
+
 
 ## Linear Models
 
@@ -23,6 +28,26 @@ Stratified sampling is the procedure in which a representative distribution of t
 ### Lasso and Ridge
 
 ### Logistic
+
+## Neural Networks
+
+#### Back Propagation
+
+#### Feed Forward
+
+#### Deep Learning
+
+#### Convolutional NN
+
+#### Recurrent NN
+
+#### Generative Adversial Networks
+
+#### ADAM
+
+#### Dropout
+
+#### Vanishing Gradients
 
 # Modeling Choices
 
