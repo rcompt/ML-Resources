@@ -13,6 +13,7 @@ Stratified sampling is the procedure in which a representative distribution of t
 
 ## L2
 
+# Outliers
 
 # Modeling Types
 
