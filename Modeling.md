@@ -49,6 +49,8 @@ Stratified sampling is the procedure in which a representative distribution of t
 
 #### Vanishing Gradients
 
+## Graphical Models
+
 # Modeling Choices
 
 # Issues
