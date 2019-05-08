@@ -47,3 +47,7 @@ Answer: Make the explanation system interactive so users can drill down until th
 
 # [Springer & Whittaker 2018](https://arxiv.org/ftp/arxiv/papers/1812/1812.03220.pdf)
 ## What Are You Hiding? Algorithmic Transparency and User Perceptions.
+
+# [Adadi & Berrada 2018](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8466590)
+## Peeking Inside the Black-Box: A Survey on Explainable Artificial Intelligence (XAI)
+
