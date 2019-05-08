@@ -36,7 +36,7 @@ Unlike discrete probability distributions where each particular value has a non-
 
 ## Let A and B be events on the same sample space, with P (A) = 0.6 and P (B) = 0.7. Can these two events be disjoint?
 
-Solution: These events cannot be disjoint because P(A) + P(B) > 1.
+These events cannot be disjoint because P(A) + P(B) > 1.
 
 P(A || B) = P(A) + P(B) - P(A & B)
 
