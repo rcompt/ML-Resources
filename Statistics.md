@@ -7,13 +7,3 @@
 # P-values
 
 # Time Series
-
-# Types of Distributions
-
-## Normal (Gaussian)
-
-## Poisson
-
-## Binomial
-
-## Power
