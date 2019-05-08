@@ -1,5 +1,5 @@
 # Weld & Bansal 2018 
-## The Challenge of Crafting Intelligible Intelligence
+## [The Challenge of Crafting Intelligible Intelligence](https://arxiv.org/pdf/1803.04263.pdf)
 
 Most computer-based produced behavior is alien (can fail in unexpected ways). Complex systems that exceeds human abilities to verify. We can neither trust nor control system behavior that we do not understand. 
 
@@ -36,14 +36,14 @@ Answer: Make the explanation system interactive so users can drill down until th
 
 ### Legal Imperatives
 
-# Ribeiro, Singh, & Guestrin 2016 
+# [Ribeiro, Singh, & Guestrin 2016](https://arxiv.org/pdf/1602.04938v1.pdf)
 ## “Why Should I Trust You?” Explaining the Predictions of Any Classifier
 
-# Lundberg & Lee (2017) 
+# [Lundberg & Lee 2017](http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf)
 ## A Unified Approach to Interpreting Model Predictions
 
-# Ribeiro, Singh, & Guestrin (2018) 
+# [Ribeiro, Singh, & Guestrin 2018](https://homes.cs.washington.edu/~marcotcr/aaai18.pdf)
 ## Anchors: High-Precision Model-Agnostic Explanations
 
-# Springer & Whittaker (2018)
+# [Springer & Whittaker 2018](https://arxiv.org/ftp/arxiv/papers/1812/1812.03220.pdf)
 ## What Are You Hiding? Algorithmic Transparency and User Perceptions.
