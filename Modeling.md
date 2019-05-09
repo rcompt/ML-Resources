@@ -25,8 +25,16 @@ However, this regularization term differs in L1 and L2.
 
 ## L1 
 
+Cost Function = Loss + (Lambda/2m) * SUM(ABS(weights))
+
+In this, we penalize the absolute value of the weights. Unlike L2, the weights may be reduced to zero here (acting like a feature selector). Hence, it is very useful when we are trying to compress our model. Otherwise, we usually prefer L2 over it.
+
 ## L2
-https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/04/Screen-Shot-2018-04-04-at-1.59.54-AM.png
+
+Cost Function = Loss + (Lambda/2m) * SUM(weights**2)
+
+Here, lambda is the regularization parameter. It is the hyperparameter whose value is optimized for better results. L2 regularization is also known as weight decay as it forces the weights to decay towards zero (but not exactly zero).
+
 # Outliers
 
 # Modeling Types
@@ -66,6 +74,25 @@ https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2018/04/Scr
 #### ADAM
 
 #### Dropout
+This is the one of the most interesting types of regularization techniques. It also produces very good results and is consequently the most frequently used regularization technique in the field of deep learning.
+
+So what does dropout do? At every iteration, it randomly selects some nodes and removes them along with all of their incoming and outgoing connections.
+
+So each iteration has a different set of nodes and this results in a different set of outputs. It can also be thought of as an ensemble technique in machine learning.
+
+Ensemble models usually perform better than a single model as they capture more randomness. Similarly, dropout also performs better than a normal neural network model.
+
+This probability of choosing how many nodes should be dropped is the hyperparameter of the dropout function. As seen in the image above, dropout can be applied to both the hidden layers as well as the input layers.
+
+#### Data Augmentation
+The simplest way to reduce overfitting is to increase the size of the training data. In machine learning, we were not able to increase the size of training data as the labeled data was too costly.
+
+But, now let’s consider we are dealing with images. In this case, there are a few ways of increasing the size of the training data – rotating the image, flipping, scaling, shifting, etc.
+
+This technique is known as data augmentation. This usually provides a big leap in improving the accuracy of the model. It can be considered as a mandatory trick in order to improve our predictions.
+
+#### Early Stopping
+Early stopping is a kind of cross-validation strategy where we keep one part of the training set as the validation set. When we see that the performance on the validation set is getting worse, we immediately stop the training on the model. This is known as early stopping.
 
 #### Vanishing Gradients
 
