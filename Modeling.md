@@ -152,6 +152,49 @@ Early stopping is a kind of cross-validation strategy where we keep one part of 
 
 ## Graphical Models
 
+## Clustering
+There are many types of clustering algorithms, such as K means, fuzzy c- means, hierarchical clustering, etc. Other than these, several other methods have emerged which are used only for specific data sets or types (categorical, binary, numeric).
+
+Among these different clustering algorithms, there exists clustering behaviors known as
+
+Soft Clustering: In this technique, the probability or likelihood of an observation being partitioned into a cluster is calculated.
+Hard Clustering: In hard clustering, an observation is partitioned into exactly one cluster (no probability is calculated).
+
+### Distance Calculation for Clustering
+There are some important things you should keep in mind:
+
+With quantitative variables, distance calculations are highly influenced by variable units and magnitude. For example, clustering variable height (in feet) with salary (in rupees) having different units and distribution (skewed) will invariably return biased results. Hence, always make sure to standardize (mean = 0, sd = 1) the variables. Standardization results in unit-less variables.
+Use of a particular distance measure depends on the variable types; i.e., formula for calculating distance between numerical variables is different than categorical variables.
+Suppose, we are given a 2-dimensional data with xi = (xi1, xi2, . . . , xip) and xj = (xj1, xj2, . . . , xjp). Both are numeric variables. We can calculate various distances as follows:
+
+1. Euclidean Distance: It is used to calculate the distance between quantitative (numeric) variables. As it involves square terms, it is also known as L2 distance (because it squares the difference in coordinates). Its formula is given by
+
+                    d(xi , xj ) = (|xi1 − xj1|² + |xi2 − xj2|² + . . . + |xip − xjp|² ) 1/2
+2. Manhattan Distance: It is calculated as the absolute value of the sum of differences in the given coordinates. This is known as L1 distance. It is also sometimes called the Minowski Distance.
+
+An interesting fact about this distance is that it only calculates the horizontal and vertical distances. It doesn't calculate the diagonal distance. For example, in chess, we use the Manhattan distance to calculate the distance covered by rooks. Its formula is given by:
+
+                    d(xi , xj ) = (|xi1 − xj1| + |xi2 − xj2| + . . . + |xip − xjp|
+3. Hamming Distance: It is used to calculate the distance between categorical variables. It uses a contingency table to count the number of mismatches among the observations. If a categorical variable is binary (say, male or female), it encodes the variable as male = 0, female = 1.
+
+In case a categorical variable has more than two levels, the Hamming distance is calculated based on dummy encoding. Its formula is given by (x,y are given points):
+
+                      hdist(x, y) <- sum((x[1] != y[1]) + (x[2] != y[2]) + ...)
+Here, a != b is defined to have a value of 1 if the expression is true, and a value of 0 if the expression is false. This is also known as the Jaccard Coefficient.
+
+4. Gower Distance: It is used to calculate the distance between mixed (numeric, categorical) variables. It works this way: it computes the distance between observations weighted by its variable type, and then takes the mean across all variables.
+
+Technically, the above-mentioned distance measures are a form of Gower distances; i.e. if all the variables are numeric in nature, Gower distance takes the form of Euclidean. If all the values are categorical, it takes the form of Manhattan or Jaccard distance. In R, ClusterOfVar package handles mixed data very well.
+
+5. Cosine Similarity: It is the most commonly used similarity metric in text analysis. The closeness of text data is measured by the smallest angle between two vectors. The angle (Θ) is assumed to be between 0 and 90. A quick refresher: cos (Θ = 0) = 1 and cos (Θ = 90) = 0.
+
+Therefore, the maximum dissimilarity between two vectors is measured at Cos 90 (perpendicular). And, two vectors are said to be most similar at Cos 0 (parallel). For two vectors (x,y), the cosine similarity is given by their normalized dot product shown below:
+
+                     cossim(x, y) <- dot(x, y)/(sqrt(dot(x,x)*dot(y,y)))
+Let's understand the clustering techniques now.
+
+
+
 # Modeling Choices
 
 # Issues
