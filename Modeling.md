@@ -1,6 +1,6 @@
-[Modeling Procedure](#Modeling-Procedure)
-[Regularization](#Regularization)
-[Issues](#Issues)
+*[Modeling Procedure](#Modeling-Procedure)
+*[Regularization](#Regularization)
+*[Issues](#Issues)
 
 # Modeling Procedure
 
