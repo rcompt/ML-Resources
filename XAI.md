@@ -23,19 +23,29 @@ Answer: Make the explanation system interactive so users can drill down until th
 
 ## Why Intelligibility Matters
 ### AI May Have The Wrong Objective
+Simplified objective function such as accuracy combined with historically biased training data may cause uneven performance for different groups. Intelligibility empowers users ability to determine if an AI is right	for the right reasons.
 
 ### AI May Be Using Inadequate Features
+Models extract any information they can from features but are susceptible to correlations. An intelligible model allows humans to spot these issues and correct them, e.g. by adding additional features.
 
 ### Distributional Drift
+Deployed models may perform poorly in the wild, when a difference exists between the distribution which was used during training and that encountered during deployment
+Deployment distribution may change over time, even from the act of deployment
+-Adversarial domains: Spam detection, online ad pricing, and search engine optimization
+Intelligibility helps users determine when models are failing to generalize
 
 ### Facilitating User Control
+If users understand why the AI performed an undesired action, they can better issue instructions that will lead to improved future behavior
 
 ### User Acceptance
+Users are happier with and more likely to accept algorithmic decisions if they are accomplanied by an explanation.
 
 ### Improving Human Insight
+Intelligible models greatly facilitate the process of human understanding
 
 ### Legal Imperatives
-
+Auditing situations (AI-specific error)to assess liability, requires understanding the model's decisions
+  
 # [Ribeiro, Singh, & Guestrin 2016](https://arxiv.org/pdf/1602.04938v1.pdf)
 ## “Why Should I Trust You?” Explaining the Predictions of Any Classifier
 
