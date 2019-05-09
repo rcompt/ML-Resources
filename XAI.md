@@ -51,3 +51,20 @@ Answer: Make the explanation system interactive so users can drill down until th
 # [Adadi & Berrada 2018](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8466590)
 ## Peeking Inside the Black-Box: A Survey on Explainable Artificial Intelligence (XAI)
 
+AI algorithms suffer from opacity, that it is difficult to get insight into their internal mechanism of work, especially Machine Learning algorithms. Which further compound the problem, because entrusting important decisions to a system that cannot explain itself presents obvious dangers.
+
+To address this issue, Explainable Artificial Intelligence (XAI) proposes to make a shift towards more transparent AI. It aims to create a suite of techniques that produce more explainable models whilst maintaining high performance levels.
+
+XAI is a research field that aims to make AI systems results more understandable to humans. According to DARPA [16], XAI aims
+to ‘‘produce more explainable models, while maintaining a high level of learning performance (prediction accuracy); and enable human users to understand, appropriately, trust, and effectively manage the emerging generation of artificially intelligent partners’’.
+
+The goal of enabling explainability in ML, as stated by FAT∗ [4], ‘‘is to ensure that algorithmic decisions as well as any data driving those decisions can be explained to end-users and other stakeholders in non-technical terms’’.
+
+### Complexity Methods
+The complexity of a machine-learning model is directly related to its interpretability. Generally, the more complex the model, the more difficult it is to interpret and explain. Thus, the most straightforward way to get to interpretable AI/ML would be to design an algorithm that is inherently and intrinsically interpretable. Many papers support this classic approach.
+
+### Scoop Related Methods
+Interpretability implies understanding an automated model, this supports two variations according to the scoop of interpretability: understanding the entire model behavior or understanding a single prediction. In the studied literature, contributions are made in both directions. Accordingly, we distinguish between two subclasses: (i) Global interpretability and (ii) Local interpretability
+
+### Model Related Methods
+Another important way to classify model interpretability techniques is whether they are model agnostic, meaning they can be applied to any types of ML algorithms, or model specific, meaning techniques that are applicable only for a single type or class of algorithm.
