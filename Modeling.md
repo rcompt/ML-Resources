@@ -4,6 +4,9 @@
 
 3.[Issues](#Issues)
 
+4.(Modeling Types)[#Modeling-Types]
+4a.(Clustering)[#Clustering]
+
 # Modeling Procedure
 
 ## Cleaning 
