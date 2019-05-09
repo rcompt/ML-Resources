@@ -1,5 +1,54 @@
 
 # Modeling Procedure
+
+## Cleaning 
+
+### Setting up a Quality Plan
+For any activity, a proper plan is very much necessary. Before you can go ahead with data cleaning, you need to define your expectations from the function. You need to define clear KPIs along with identifying areas where the data errors are more likely to occur and at the same time identifying the reasons for errors in the data. A solid plan will help you get started with your data cleaning process.
+
+### Remove Unwanted observations
+The first step to data cleaning is removing unwanted observations from your dataset.
+
+This includes duplicate or irrelevant observations.
+
+### Fill-out missing values
+One of the first steps of fixing errors in your dataset is to find incomplete values and fill them out (Imputing). Most of the data that you may have can be categorized. In such cases, it is best to fill out your missing values based on different categories or create entirely new categories to include the missing values.
+
+If your data are numerical, you can use mean and median to rectify the errors (depends if the missing data is at random for your choice). You can also take an average based on different criteria, — namely age, geographical location, etc., among others.
+
+#### Missing categorical data
+The best way to handle missing data for categorical features is to simply label them as ’Missing’!
+
+You’re essentially adding a new class for the feature.
+This tells the algorithm that the value was missing.
+This also gets around the technical requirement for no missing values.
+
+#### Missing numeric data
+For missing numeric data, you should flag and fill the values.
+
+Flag the observation with an indicator variable of missingness.
+Then, fill the original missing value with 0 just to meet the technical requirement of no missing values.
+By using this technique of flagging and filling, you are essentially allowing the algorithm to estimate the optimal constant for missingness, instead of just filling it in with the mean.
+
+### Removing rows with missing values
+One of the simplest things to do in data cleansing is to remove or delete rows with missing values. This may not be the ideal step in case of a huge amount of errors in your training data. If the missing values are considerably less, then removing or deleting missing values can be the right approach. You will have to be very sure that the data you are deleting does not include information that is present in the other rows of the training data.
+
+### Fixing errors in the structure
+Ensure there are no typographical errors and inconsistencies in the upper or lower case. Go through your data set, identify such errors, and solve them to make sure that your training set is completely error-free. This will help you to yield better results from your machine learning functions. Also, remove duplicate categorization from your data list and streamline your data.
+
+### Filter Unwanted Outliers
+
+Outliers can cause problems with certain types of models. For example, linear regression models are less robust to outliers than decision tree models.
+
+In general, if you have a legitimate reason to remove an outlier, it will help your model’s performance.
+
+However, outliers are innocent until proven guilty. You should never remove an outlier just because it’s a "big number." That big number could be very informative for your model.
+
+We can’t stress this enough: you must have a good reason for removing an outlier, such as suspicious measurements that are unlikely to be real data.
+
+### Reducing data for proper data handling
+It is good to reduce the data you are handling. A downsized dataset can help you generate results that are more accurate. There are different ways of reducing data in your dataset. Whatever data records you have, sample them and choose the relevant subset from that data. This method of data handling is called Record Sampling. Apart from this method, you can also use Attribute Sampling. When it comes to the attribute sampling, select a subset of the most important attributes from the dataset.
+
 ## Data Splitting
 
 ### Even splitting across data sets
@@ -105,4 +154,5 @@ Early stopping is a kind of cross-validation strategy where we keep one part of 
 
 ## Underfitting
 
+# Evaluation Metrics
 
