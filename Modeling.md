@@ -1,4 +1,4 @@
-1.[Modeling Procedure](#Modeling-Procedure)
+1.[Modeling Procedure](#Modeling-Procedure) \n
 2.[Regularization](#Regularization)
 3.[Issues](#Issues)
 
