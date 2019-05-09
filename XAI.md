@@ -48,15 +48,37 @@ Auditing situations (AI-specific error)to assess liability, requires understandi
   
 # [Ribeiro, Singh, & Guestrin 2016](https://arxiv.org/pdf/1602.04938v1.pdf)
 ## “Why Should I Trust You?” Explaining the Predictions of Any Classifier
+If the users do not trust a model or a prediction, they will not use it
+(1) Trusting a prediction - user trusts an individual prediction sufficiently to take some action based on it
+(2) Trusting a model - user trust a model to behave in reasonable ways if deployed
+
+Solution: explanation for prediciton as a solution to 1st trust problem
+			selecting multiple such predictions as a solution to the 2nd trust problem
+Explanations: presenting textual or visual artifacts that provide qualitative 
+understanding of the relationships between the instance's components and the model's 
+prediction
+Interpretable: provide qualitative understanding between joint values of input
+				variables and the resulting predicted response values
+Explanations should be easy to understand (not necessarily true for the models features)
 
 # [Lundberg & Lee 2017](http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf)
 ## A Unified Approach to Interpreting Model Predictions
+Tension between accuracy and interpretability
+Understanding how these methods relate and when one method is preferable to another
+is still lacking
 
 # [Ribeiro, Singh, & Guestrin 2018](https://homes.cs.washington.edu/~marcotcr/aaai18.pdf)
 ## Anchors: High-Precision Model-Agnostic Explanations
 
 # [Springer & Whittaker 2018](https://arxiv.org/ftp/arxiv/papers/1812/1812.03220.pdf)
 ## What Are You Hiding? Algorithmic Transparency and User Perceptions.
+Lack of transparency may lead users to accept output from algorithms that are simply random
+Results around the effects of algorithmic transparency have been mixed
+	Lim and Dey found that increased transparency can make users question the algorithm when its correct, impairing the user experience
+	Bunt, Lount, and Lauzon found that users may feel that these explanations simply cause
+		additional processing without offering real value
+
+Transparency removed the correlation between expectation violation and accuracy
 
 # [Adadi & Berrada 2018](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8466590)
 ## Peeking Inside the Black-Box: A Survey on Explainable Artificial Intelligence (XAI)
