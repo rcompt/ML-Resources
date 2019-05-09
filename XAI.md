@@ -100,3 +100,6 @@ Interpretability implies understanding an automated model, this supports two var
 
 ### Model Related Methods
 Another important way to classify model interpretability techniques is whether they are model agnostic, meaning they can be applied to any types of ML algorithms, or model specific, meaning techniques that are applicable only for a single type or class of algorithm.
+
+# [Weber et al 2018](https://arxiv.org/pdf/1812.00076.pdf)
+## Scalable Graph Learning for Anti-Money Laundering: A First Look
