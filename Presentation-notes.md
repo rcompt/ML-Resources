@@ -29,7 +29,32 @@ Calculate critical values based on significance level alpha
 
 Compare test statistic with critical values.
 
+
 # Clustering
+The free flow text data is first curated in the following stages:-
+
+## Stage 1
+
+Removing punctuations
+
+Transforming to lower case
+
+Grammatically tagging sentences and removing pre-identified stop phrases (Chunking)
+
+Removing numbers from the document
+
+Stripping any excess white spaces
+
+## Stage 2
+Removing generic words of the English language viz. determiners, articles, conjunctions and other parts of speech.
+
+## Stage 3
+Document Stemming which reduces each word to its root using Porter’s stemming algorithm.
+
+These steps are best explained through the illustration below:-
+
+Once all the documents in the corpus are transformed as explained above, a term document matrix is created and the documents are transformed into this vector space model using the 1-gram vectorizer (see below). Other more sophisticated implementations include n-gram (where n in a reasonably small integer)
+
 ## TF-IDF (Term Frequency – Inverse Document Frequency) Normalization
 This is an optional step and can be performed in case there is high variability in the document corpus and the number of documents in the corpus is extremely large (of the order of several million). This normalization increases the importance of terms that appear multiple times in the same document while decreasing the importance of terms that appear in many documents (which would mostly be generic terms). The term weightages are computed as follows:-
 
