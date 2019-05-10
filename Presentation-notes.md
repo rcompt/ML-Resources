@@ -355,15 +355,95 @@ Gini Coefficient is an indicator of how well the model outperforms random predic
 
 Gini Coefficient = (2 * AUROC) - 1
 
+## Regression Metrics
+
+### Explained Variance
+
+### Max Error
+
+### Mean ABS Error
+
+### Mean Squared Error
+
+### Mean Squared Log Error
+
+### Median Absolute Error
+
+### R^2
+
 # Linear v Nonlinear
+A linear model uses a linear function for its prediction function or as a crucial part of its prediction function.
+
+A linear function takes a fixed number of numerical inputs, let's call them x1,x2,…,xn and returns w0+∑ni=1wixi where the weights w0,…,wn are the parameters of the model.
+
+If the prediction function is a linear function, we can perform regression, i.e. predicting a numerical label. We can also take a linear function and return the sign of the result (whether the result is positive or not) and perform binary classification that way: all examples with a positive output receive label A, all others receive label B. There are various other (more complex) options for a response function on top of the linear function, the logistic function is very commonly used (which leads to logistic regression, predicting a number between 0 and 1, typically used to learn the probability of a binary outcome in a noisy setting).
+
+A non-linear model is a model which is not a linear model. Typically these are more powerful (they can represent a larger class of functions) but much harder to train.
 
 # Hyperparameter search
+## Grid search
+## Random search
+## Bayesian optimization
+## Gradient-based optimization
+## Evloutionary optimization
+## Population-based
 
 # Feature Importance
+A benefit of using gradient boosting is that after the boosted trees are constructed, it is relatively straightforward to retrieve importance scores for each attribute.
+
+Generally, importance provides a score that indicates how useful or valuable each feature was in the construction of the boosted decision trees within the model. The more an attribute is used to make key decisions with decision trees, the higher its relative importance.
+
+This importance is calculated explicitly for each attribute in the dataset, allowing attributes to be ranked and compared to each other.
+
+Importance is calculated for a single decision tree by the amount that each attribute split point improves the performance measure, weighted by the number of observations the node is responsible for. The performance measure may be the purity (Gini index) used to select the split points or another more specific error function.
+
+The feature importances are then averaged across all of the the decision trees within the model.
 
 # Synthetic generation
+## SMOTE
+Using a machine learning algorithm out of the box is problematic when one class in the training set dominates the other. Synthetic Minority Over-sampling Technique (SMOTE) solves this problem.
 
-# Outlier Analysis
+SMOTE synthesises new minority instances between existing (real) minority instances.
+
+What smote does is simple. First it finds the n-nearest neighbors in the minority class for each of the samples in the class . Then it draws a line between the the neighbors an generates random points on the lines.
+
+The SMOTE() of smotefamily takes two parameters: K and dup_size. In order to understand them, we need a bit more background on how SMOTE() works.
+
+SMOTE() thinks from the perspective of existing minority instances and synthesises new instances at some distance from them towards one of their neighbours. Which neighbours are considered for each existing minority instance?
+
+At K = 1 only the closest neighbour of the same class is considered. Let’s take the bottom right, red data point. By drawing a concentric circle around the dot on the plot, we can easily see that the top left flower is its closest neighbour. Thus, at K = 1 SMOTE() synthesises a new minority instance on the line between these two dots when the bottom right flower is considered.
+
+At K = 2 both the closest and the second closest neighbours are considered. For each new synthesis, a new one is randomly chosen between them.
+
+In general, one might say that SMOTE() loops through the existing, real minority instance. At each loop iteration, one of the K closest minority class neighbours is chosen and a new minority instance is synthesised somewhere between the minority instance and that neighbour.
+
+The dup_size parameter answers the question how many times SMOTE() should loop through the existing, real minority instances. Therefore at dup_size = 1 only 4 new data points are synthesised (1 for each existing minority instance). At dup_size = 200, 800 new data points get synthesised
+
+## ADASYN
+Its a improved version of Smote. What it does is same as SMOTE just with a minor improvement. After creating those sample it adds a random small values to the points thus making it more realistic. In other words instead of all the sample being linearly correlated to the parent they have a little more variance in them i.e they are bit scattered.
+
+
+
+# [Outlier Analysis](https://machinelearningmastery.com/how-to-identify-outliers-in-your-data/)
+Outlier Modeling
+Outliers are extreme values that fall a long way outside of the other observations. For example, in a normal distribution, outliers may be values on the tails of the distribution.
+
+The process of identifying outliers has many names in data mining and machine learning such as outlier mining, outlier modeling and novelty detection and anomaly detection.
+
+In his book Outlier Analysis (affiliate link), Aggarwal provides a useful taxonomy of outlier detection methods, as follows:
+
+Extreme Value Analysis: Determine the statistical tails of the underlying distribution of the data. For example, statistical methods like the z-scores on univariate data.
+Probabilistic and Statistical Models: Determine unlikely instances from a probabilistic model of the data. For example, gaussian mixture models optimized using expectation-maximization.
+Linear Models: Projection methods that model the data into lower dimensions using linear correlations. For example, principle component analysis and data with large residual errors may be outliers.
+Proximity-based Models: Data instances that are isolated from the mass of the data as determined by cluster, density or nearest neighbor analysis.
+Information Theoretic Models: Outliers are detected as data instances that increase the complexity (minimum code length) of the dataset.
+High-Dimensional Outlier Detection: Methods that search subspaces for outliers give the breakdown of distance based measures in higher dimensions (curse of dimensionality).
+Aggarwal comments that the interpretability of an outlier model is critically important. Context or rationale is required around decisions why a specific data instance is or is not an outlier.
+
+In his contributing chapter to Data Mining and Knowledge Discovery Handbook (affiliate link), Irad Ben-Gal proposes a taxonomy of outlier models as univariate or multivariate and parametric and nonparametric. This is a useful way to structure methods based on what is known about the data. For example:
+
+Are you considered with outliers in one or more than one attributes (univariate or multivariate methods)?
+Can you assume a statistical distribution from which the observations were sampled or not (parametric or nonparametric)?
 
 # Models
 ## SVMs 
