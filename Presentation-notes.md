@@ -19,8 +19,35 @@ For most machine learning algorithms you can assign higher costs for “false po
 In anomaly detection, the basic idea is to predict the probability for every record to be an anomaly, e.g. fraud. This is done via looking at the values of the features of an unseen data record and comparing them to those of all other data records which are known to be normal. If the probability turns out to be below a certain threshold \boldsymbol{\epsilon}, for example 5%, then the data record is classified as an anomaly. Especially anomaly detection using a multivariate Gaussian distribution looks promising to me. However, anomaly detection cannot be applied to multiclass classification settings with skewed classes. The algorithm would only be able to tell which of the data records don’t belong to any of the labeled classes and therefore should be classified as something like “other”. Unfortunately, I don’t have any practical experience with anomaly detection algorithms yet and do neither know the performance nor the pitfalls of such an approach. But for further information, I can recommend the anomaly detection chapter of the Machine Learning class at coursera.
 
 # P-values
+The probability to obtain a similar or more extreme result than observed when the null hypothesis is assumed. ⇒ If the p-value is small, the null hypothesis is unlikely
+
+A critical value is a point (or points) on the scale of the test statistic beyond which we reject the null hypothesis, and, is derived from the level of significance α of the test. Critical value can tell us, what is the probability of two sample means belonging to the same distribution. Higher, the critical value means lower the probability of two samples belonging to same distribution. The general critical value for a two-tailed test is 1.96, which is based on the fact that 95% of the area of a normal distribution is within 1.96 standard deviations of the mean. (Beware, this value is highly dependent on the same size, so 95% isn't a general threshold, it should be adjusted depending on the context). Critical values can be used to do hypothesis testing in following way
+
+Calculate test statistic
+
+Calculate critical values based on significance level alpha
+
+Compare test statistic with critical values.
 
 # Clustering
+## TF-IDF (Term Frequency – Inverse Document Frequency) Normalization
+This is an optional step and can be performed in case there is high variability in the document corpus and the number of documents in the corpus is extremely large (of the order of several million). This normalization increases the importance of terms that appear multiple times in the same document while decreasing the importance of terms that appear in many documents (which would mostly be generic terms). The term weightages are computed as follows:-
+
+## K-Means Clustering using Euclidean Distances
+Post the TF-IDF transformation, the document vectors are put through a K-Means clustering algorithm which computes the Euclidean Distances amongst these documents and clusters nearby documents together.
+
+## Auto-Tagging based on Cluster Centers
+The algorithm then generates cluster tags, known as cluster centers which represent the documents contained in these clusters. The clustering and auto-generated tags are best depicted in the illustration below (Principal components 1 and 2 are plotted along the x and y axes respectively):-
+
+In order for more and more users to benefit from this solution and analyze their unstructured text data, I have created a RESTful web service that users can access in two ways:
+
+-A web interface for this service which is a Swagger API Docs front end. This is a very popular solution for RESTful web services. The user can navigate to the web interface URL, upload the data-set, specify the column containing the natural language data that needs to be analyzed and the desired number of clusters and within a few minutes the output will appear as a downloadable link containing the results of the analysis.
+
+-Since the web service works on the concept of Application Programming Interface (API), the computation engine that performs the analysis is a separate component which is scalable, portable and can be accessed from any other application through RESTful HTTP.
+
+Since all computations are performed in-memory, the results are lightning fast.
+
+
 
 # Text Features
 ## N-Grams
