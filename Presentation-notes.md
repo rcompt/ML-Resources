@@ -76,8 +76,57 @@ Since all computations are performed in-memory, the results are lightning fast.
 
 # Text Features
 ## N-Grams
+An n-gram is a contiguous sequence of n items from a given sample of text or speech
+
 ## Skip-grams
-## Word Embeddings
+The Skip-gram model architecture usually tries to achieve the reverse of what the CBOW model does. It tries to predict the source context words (surrounding words) given a target word (the center word). Considering our simple sentence from earlier, “the quick brown fox jumps over the lazy dog”. If we used the CBOW model, we get pairs of (context_window, target_word)where if we consider a context window of size 2, we have examples like ([quick, fox], brown), ([the, brown], quick), ([the, dog], lazy) and so on. Now considering that the skip-gram model’s aim is to predict the context from the target word, the model typically inverts the contexts and targets, and tries to predict each context word from its target word. Hence the task becomes to predict the context [quick, fox] given target word ‘brown’ or [the, brown] given target word ‘quick’ and so on. Thus the model tries to predict the context_window words based on the target_word.
+
+Just like we discussed in the CBOW model, we need to model this Skip-gram architecture now as a deep learning classification model such that we take in the target word as our input and try to predict the context words.This becomes slightly complex since we have multiple words in our context. We simplify this further by breaking down each (target, context_words) pair into (target, context) pairs such that each context consists of only one word. Hence our dataset from earlier gets transformed into pairs like (brown, quick), (brown, fox), (quick, the), (quick, brown) and so on. But how to supervise or train the model to know what is contextual and what is not?
+
+For this, we feed our skip-gram model pairs of (X, Y) where X is our input and Y is our label. We do this by using [(target, context), 1] pairs as positive input samples where target is our word of interest and context is a context word occurring near the target word and the positive label 1 indicates this is a contextually relevant pair. We also feed in [(target, random), 0] pairs as negative input samples where target is again our word of interest but random is just a randomly selected word from our vocabulary which has no context or association with our target word. Hence the negative label 0indicates this is a contextually irrelevant pair. We do this so that the model can then learn which pairs of words are contextually relevant and which are not and generate similar embeddings for semantically similar words.
+
+### Implementing the Skip-gram Model
+ 
+Let’s now try and implement this model from scratch to gain some perspective on how things work behind the scenes and also so that we can compare it with our implementation of the CBOW model. We will leverage our Bible corpus as usual which is contained in the norm_bible variable for training our model. The implementation will focus on five parts
+
+Build the corpus vocabulary
+
+Build a skip-gram [(target, context), relevancy] generator
+
+Build the skip-gram model architecture
+
+Train the Model
+
+Get Word Embeddings
+
+
+## [Word Embeddings](https://towardsdatascience.com/introduction-to-word-embedding-and-word2vec-652d0c2060fa)
+Word Embedding => Collective term for models that learned to map a set of words or phrases in a vocabulary to vectors of numerical values.
+
+General approach for dealing with words in your text data is to one-hot encode your text. You will have tens of thousands of unique words in your text vocabulary. Computations with such one-hot encoded vectors for these words will be very inefficient because most values in your one-hot vector will be 0. So, the matrix calculation that will happen in between a one-hot vector and a first hidden layer will result in a output that will have mostly 0 values
+
+We use embeddings to solve this problem and greatly improve the efficiency of our network. Embeddings are just like a fully-connected layer. We will call this layer as— embedding layer and the weights as — embedding weights.
+
+Now, instead of doing the matrix multiplication between the inputs and hidden layer we directly grab the values from embedding weight matrix. We can do this because the multiplication of one-hot vector with weight matrix returns the row of the matrix corresponding to the index of ‘1’ input unit
+
+So, we use this Weight Matrix as lookup table. We encode the words as integers, for example ‘cool’ is encoded as 512, ‘hot’ is encoded as 764. Then to get hidden layer output value for ‘cool’ we just simply need to lookup the 512th row in the weight matrix. This process is called Embedding Lookup. The number of dimension in the hidden layer output is the embedding dimension
+
+To reiterate :-
+
+a) The embedding layer is just a hidden layer
+
+b) The lookup table is just a embedding weight matrix
+
+c) The lookup is just a shortcut for matrix multiplication
+
+d) The lookup table is trained just like any weight matrix
+
+Popular off-the-shelf word embedding models in use today:
+
+Word2Vec (by Google)
+GloVe (by Stanford)
+fastText (by Facebook)
+
 ## Topic Models (clustering)
 
 # Feature Engineering
