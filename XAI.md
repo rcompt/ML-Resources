@@ -103,3 +103,6 @@ Another important way to classify model interpretability techniques is whether t
 
 # [Weber et al 2018](https://arxiv.org/pdf/1812.00076.pdf)
 ## Scalable Graph Learning for Anti-Money Laundering: A First Look
+
+# [Magomedov et al 2018](https://pdfs.semanticscholar.org/5f55/8654167968156c76a8f7c71807287ea6a9c5.pdf)
+## Anomaly Detection with Machine Learning and Graph Databases in Fraud Management
