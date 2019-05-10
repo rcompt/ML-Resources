@@ -254,6 +254,107 @@ If a value for k is chosen that does not evenly split the data sample, then one 
 
 # Evaluation Metrics
 
+No.	Evaluation Metric	Formula	Interpretation
+1	Sensitivity	| A /(A + C)	| What percentage of all 1's were correctly predicted?
+2	Specificity |	D/(B+D) |	What percentage of all 0's were correctly predicted?
+3	Prevalence	| (A+C)/(A+B+C+D) |	Percentage of True 1's in the sample
+4	Detection Rate	| A/(A+B+C+D) |	Correctly predicted 1's as a percentage of entire sample
+5	Detection Prevalence	| (A+B)/(A+B+C+D) |	What percentage of the full sample was predicted as 1?
+6	Balanced Accuracy	| (sensitivity+specificity)/2 |	A balance between correctly predicting the 1's and 0's
+7	Precision	| A/(A+B) |	What percentage of predicted 1's are correct?
+8	Recall	| A/(A+C) |	What percentage of all 1's were correctly predicted?
+9	F1 Score	| 2 * Precision * Recall / (Precision + Recall) |	A combination of Precision and Recall
+10	Cohen's Kappa	| (Observed Accuracy - Expected Accuracy) / (1 - Expected Accuracy) |	How the model exceeded random predictions in terms of accuracy
+11	Concordance	| Proportion of Concordant Pairs |	Proportion of Concordant Pairs
+12	Somers D	| (Concordant Pairs - Discordant Pairs - Ties) / Total Pairs |	A combination of concordance and discordance
+13	AUROC	| Area Under the ROC Curve |	Model's true performance considering all possible probability cutoffs
+14	Gini Coefficient |	(2 * AUROC) - 1 |	How the model exceeded random predictions in terms of ROC
+15	KS Statistic |	Max(Cumulative% 1's - Cumulative% 0's) |	Used to decide how many customers to target
+16	Youden's J Index	| Sensitivity + Specificity - 1 |	Similar to balanced accuracy
+
+## Confusion Matrix
+The rows in the confusion matrix are the count of predicted 0’s and 1’s (from y_pred), while, the columns are the actuals (from y_act).
+
+So, you have 122 out of 133 benign instances predicted as benign and 70 out of 71 malignant instances predicted as malignant. This is good.
+
+Secondly, look at the 1 in top-right of the table. This means the model predicted 1 instance as benign which was actually positive.
+
+This is a classic case of ‘False Negative’ or Type II error. You want to avoid this at all costs, because, it says the patient is healthy when he is actually carrying malignant cells.
+
+Also, the model predicted 11 instances as ‘Malignant’ when the patient was actually ‘Benign’. This is called ‘False Positive’ or Type I error. This condition should also be avoided but in this case is not as dangerous as Type II error.
+
+## Sensitivity 
+Sensitivity is the percentage of actual 1’s that were correctly predicted. It shows what percentage of 1’s were covered by the model.
+
+## Specificity  
+Specificity is the proportion of actual 0’s that were correctly predicted. So in this case, it is 122 / (122+11) = 91.73%.
+
+Specificity matters more when classifying the 0’s correctly is more important than classifying the 1’s.
+
+Maximizing specificity is more relevant in cases like spam detection, where you strictly don’t want genuine messages (0’s) to end up in spam (1’s).
+
+## Detection rate
+Detection rate is the proportion of the whole sample where the events were detected correctly. So, it is 70 / 204 = 34.31%.
+
+## Precision
+A high precision score gives more confidence to the model’s capability to classify 1’s.
+
+## Recall 
+Combining this with Recall gives an idea of how many of the total 1’s it was able to cover.
+
+## F1-Score
+A good model should have a good precision as well as a high recall. So ideally, I want to have a measure that combines both these aspects in one single metric – the F1 Score.
+
+## Cohen's Kappa
+Kappa is similar to Accuracy score, but it takes into account the accuracy that would have happened anyway through random predictions.
+
+Kappa = (Observed Accuracy - Expected Accuracy) / (1 - Expected Accuracy)
+
+Cohen's kappa is shown as an output of caret's confusionMatrix function.
+
+## KS Statistic
+The KS Statistic and the KS Chart (discussed next) are used to make decisions like: How many customers to target for a marketing campaign? or How many customers should we pay for to show ads etc.
+
+So how to compute the Kolmogorov-Smirnov statistic?
+
+Step 1: Once the prediction probability scores are obtained, the observations are sorted by decreasing order of probability scores. This way, you can expect the rows at the top to be classified as 1 while rows at the bottom to be 0's.
+
+Step 2: All observations are then split into 10 equal sized buckets (bins).
+
+Step 3: Then, KS statistic is the maximum difference between the cumulative percentage of responders or 1's (cumulative true positive rate) and cumulative percentage of non-responders or 0's (cumulative false positive rate).
+
+The significance of KS statistic is, it helps to understand, what portion of the population should be targeted to get the highest response rate (1's).
+
+The KS statistic can be computed using the ks_stat function in InformationValue package. By setting the returnKSTable = T, you can retrieve the table that contains the detailed decile level splits.
+
+## ROC
+Often, choosing the best model is sort of a balance between predicting the one's accurately or the zeroes accurately. In other words sensitivity and specificity.
+
+But it would be great to have something that captures both these aspects in one single metric.
+
+This is nicely captured by the 'Receiver Operating Characteristics' curve, also called as the ROC curve. In fact, the area under the ROC curve can be used as an evaluation metric to compare the efficacy of the models.
+
+The area under the ROC curve is also shown. But how to interpret this plot?
+
+Interpreting the ROC plot is very different from a regular line plot. Because, though there is an X and a Y-axis, you don't read it as: for an X value of 0.25, the Y value is .9.
+
+Instead, what we have here is a line that traces the probability cutoff from 1 at the bottom-left to 0 in the top right.
+
+This is a way of analyzing how the sensitivity and specificity perform for the full range of probability cutoffs, that is from 0 to 1.
+
+Ideally, if you have a perfect model, all the events will have a probability score of 1 and all non-events will have a score of 0. For such a model, the area under the ROC will be a perfect 1.
+
+So, if we trace the curve from bottom left, the value of probability cutoff decreases from 1 towards 0. If you have a good model, more of the real events should be predicted as events, resulting in high sensitivity and low FPR. In that case, the curve will rise steeply covering a large area before reaching the top-right.
+
+Therefore, the larger the area under the ROC curve, the better is your model.
+
+The ROC curve is the only metric that measures how well the model does for different values of prediction probability cutoffs. The optimalCutoff function from InformationValue can be used to know what cutoff gives the best sensitivity, specificity or both.
+
+## Gini Coefficient
+Gini Coefficient is an indicator of how well the model outperforms random predictions. It can be computed from the area under the ROC curve using the following formula:
+
+Gini Coefficient = (2 * AUROC) - 1
+
 # Linear v Nonlinear
 
 # Hyperparameter search
